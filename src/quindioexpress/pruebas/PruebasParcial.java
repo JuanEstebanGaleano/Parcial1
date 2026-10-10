@@ -1,6 +1,6 @@
 package quindioexpress.pruebas;
 
-import quindioexpress.estructuras.MiListaEnlazada;
+import quindioexpress.estructuras.ListaEnlazada;
 import quindioexpress.modelo.ComparadoresPaquete;
 import quindioexpress.modelo.Paquete;
 import quindioexpress.modelo.Repartidor;
@@ -30,7 +30,7 @@ public final class PruebasParcial {
     }
 
     private static void probarListaEnlazada() {
-        MiListaEnlazada<String> lista = new MiListaEnlazada<>();
+        ListaEnlazada<String> lista = new ListaEnlazada<>();
         comprobar(lista.estaVacia(), "lista inicialmente vacía");
         comprobar(!lista.eliminar("x"), "eliminar en lista vacía");
         lista.agregar("A");
@@ -167,7 +167,7 @@ public final class PruebasParcial {
         comprobar(asignado.getCodigo().equals("PQ100"),
                 "asignación automática selecciona mayor prioridad");
         servicio.registrarEntrega("PQ100", "R-A");
-        MiListaEnlazada<Paquete> historialCopia = servicio.obtenerHistorialEntregas();
+        ListaEnlazada<Paquete> historialCopia = servicio.obtenerHistorialEntregas();
         historialCopia.eliminar(asignado);
         comprobar(servicio.cantidadEntregasRealizadas() == 1,
                 "modificar copia del historial no altera historial interno");
@@ -263,7 +263,7 @@ public final class PruebasParcial {
                 "repartidor marcado no disponible no recibe asignación");
         esperarExcepcion(IllegalStateException.class, () -> s.asignarPaquete("PQ200", "R1"),
                 "paquete ya entregado no puede reasignarse");
-        MiListaEnlazada<Integer> numeros = new MiListaEnlazada<>();
+        ListaEnlazada<Integer> numeros = new ListaEnlazada<>();
         numeros.agregar(1);
         numeros.agregar(2);
         numeros.agregar(3);

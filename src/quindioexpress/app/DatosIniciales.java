@@ -14,7 +14,6 @@ public final class DatosIniciales {
         cargarPaquetes(servicio);
         cargarRepartidores(servicio);
     }
-
     private static void cargarPaquetes(CentroDistribucionServicio servicio) {
         servicio.registrarPaquete(new Paquete("PQ731", "Armenia", 4.5, 5, 45));
         servicio.registrarPaquete(new Paquete("PQ105", "Salento", 3.0, 5, 25));
@@ -49,14 +48,13 @@ public final class DatosIniciales {
         servicio.registrarPaquete(new Paquete("PQ590", "Salento", 14.4, 5, 26));
 
         // Este paquete usa el constructor abreviado y demuestra la prioridad predeterminada 5.
-        
+
         servicio.registrarPaquete(new Paquete("PQ231", "Filandia", 6.1, 25));
         servicio.registrarPaquete(new Paquete("PQ767", "Circasia", 8.4, 1, 20));
         servicio.registrarPaquete(new Paquete("PQ155", "Armenia", 10.7, 4, 18));
         servicio.registrarPaquete(new Paquete("PQ698", "Calarcá", 3.1, 1, 16));
         servicio.registrarPaquete(new Paquete("PQ388", "Salento", 8.8, 3, 32));
     }
-
     private static void cargarRepartidores(CentroDistribucionServicio servicio) {
         servicio.registrarRepartidor(new Repartidor("R001", "María Gómez", "Armenia", true));
         servicio.registrarRepartidor(new Repartidor("R002", "Carlos Ruiz", "Salento", true));

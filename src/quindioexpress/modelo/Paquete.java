@@ -67,28 +67,24 @@ public class Paquete implements Comparable<Paquete> {
                 "Paquete{codigo='%s', destino='%s', peso=%.2f kg, prioridad=%d, tiempoEstimado=%d min}",
                 codigo, destino, peso, prioridad, tiempoEstimado);
     }
-
     private static double validarPeso(double peso) {
         if (!Double.isFinite(peso) || peso <= 0.0) {
             throw new IllegalArgumentException("El peso debe ser un número finito mayor que cero.");
         }
         return peso;
     }
-
     private static int validarPrioridad(int prioridad) {
         if (prioridad < PRIORIDAD_MINIMA || prioridad > PRIORIDAD_MAXIMA) {
             throw new IllegalArgumentException("La prioridad debe estar entre 1 y 5, inclusive.");
         }
         return prioridad;
     }
-
     private static int validarTiempo(int tiempoEstimado) {
         if (tiempoEstimado <= 0) {
             throw new IllegalArgumentException("El tiempo estimado debe ser un entero mayor que cero.");
         }
         return tiempoEstimado;
     }
-
     private static String validarTexto(String valor, String mensaje) {
         if (valor == null || valor.trim().isEmpty()) {
             throw new IllegalArgumentException(mensaje);

@@ -18,7 +18,6 @@ public final class DemoEnunciado {
 
     public static void demostrarEjemplosDelEnunciado() {
         System.out.println("\n--- Ejemplos del enunciado ---");
-
         CentroDistribucionServicio despacho = new CentroDistribucionServicio();
         despacho.registrarPaquete(new Paquete("PQ420", "Armenia", 2.0, 3, 30));
         despacho.registrarPaquete(new Paquete("PQ731", "Armenia", 2.0, 5, 45));
@@ -49,7 +48,6 @@ public final class DemoEnunciado {
         }
         System.out.println("Prioridad >= 4 con 5,2,4,1,5,3,4 (esperado 4): "
                 + prioridades.contarPaquetesConPrioridadMinima(4));
-
         CentroDistribucionServicio mayor = new CentroDistribucionServicio();
         double[] kilos = {4.5, 12.0, 3.2, 18.7, 7.4, 5.1};
         for (int i = 0; i < kilos.length; i++) {
@@ -57,7 +55,6 @@ public final class DemoEnunciado {
         }
         System.out.println("Mayor peso (esperado 18.7): "
                 + mayor.obtenerPaqueteMayorPesoDivideYVenceras().get().getPeso());
-
         CentroDistribucionServicio ejemplo = new CentroDistribucionServicio();
         String[][] datos = {{"PQ731", "Armenia"}, {"PQ105", "Salento"}, {"PQ942", "Armenia"},
                 {"PQ318", "Calarcá"}, {"PQ567", "Salento"}, {"PQ829", "Armenia"}};
@@ -73,7 +70,6 @@ public final class DemoEnunciado {
         System.out.println("Orden natural por código (esperado PQ105, PQ318, PQ567, PQ731, PQ829, PQ942): "
                 + naturales);
     }
-
     public static void demostrarTrazasRecursivas() {
         System.out.println("\n--- Trazas de pila de llamadas (conjunto reducido) ---");
         List<Paquete> reducido = new ArrayList<>();

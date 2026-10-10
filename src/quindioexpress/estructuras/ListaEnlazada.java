@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-public class MiListaEnlazada<T> implements MiColeccion<T>, Iterable<T> {
+public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
 
     private Nodo<T> cabeza;
     private Nodo<T> cola;
@@ -21,7 +21,7 @@ public class MiListaEnlazada<T> implements MiColeccion<T>, Iterable<T> {
         }
     }
 
-    public MiListaEnlazada() {
+    public ListaEnlazada() {
         cabeza = null;
         cola = null;
         tamano = 0;

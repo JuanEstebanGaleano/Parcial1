@@ -1,14 +1,12 @@
 package quindioexpress.app;
 
-import quindioexpress.estructuras.MiListaEnlazada;
+import quindioexpress.estructuras.ListaEnlazada;
 import quindioexpress.modelo.ComparadoresPaquete;
 import quindioexpress.modelo.Paquete;
 import quindioexpress.servicio.CentroDistribucionServicio;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public final class DemoConsultas {
 
@@ -61,7 +59,7 @@ public final class DemoConsultas {
 
     public static void demostrarListaPropia() {
         System.out.println("\n--- Prueba de la lista simplemente enlazada propia ---");
-        MiListaEnlazada<String> lista = new MiListaEnlazada<>();
+        ListaEnlazada<String> lista = new ListaEnlazada<>();
         System.out.println("Vacía al inicio: " + lista.estaVacia());
         lista.agregar("inicio");
         lista.agregar("centro");

@@ -1,6 +1,6 @@
 package quindioexpress.estructuras;
 
-public interface MiColeccion<T> {
+public interface Coleccion<T> {
 
     void agregar(T elemento);
 

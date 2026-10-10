@@ -47,7 +47,9 @@ public final class DatosIniciales {
         servicio.registrarPaquete(new Paquete("PQ816", "Armenia", 4.3, 1, 21));
         servicio.registrarPaquete(new Paquete("PQ448", "Calarcá", 7.0, 2, 34));
         servicio.registrarPaquete(new Paquete("PQ590", "Salento", 14.4, 5, 26));
+
         // Este paquete usa el constructor abreviado y demuestra la prioridad predeterminada 5.
+        
         servicio.registrarPaquete(new Paquete("PQ231", "Filandia", 6.1, 25));
         servicio.registrarPaquete(new Paquete("PQ767", "Circasia", 8.4, 1, 20));
         servicio.registrarPaquete(new Paquete("PQ155", "Armenia", 10.7, 4, 18));

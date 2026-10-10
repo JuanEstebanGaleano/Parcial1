@@ -46,7 +46,6 @@ public final class DemoOperacion {
         System.out.println("Siguiente por llegada después de esas entregas: "
                 + servicio.obtenerSiguientePorLlegada().orElse(null));
     }
-
     public static void demostrarRepartidoresYModalidades(CentroDistribucionServicio servicio) {
         System.out.println("\n--- Repartidores, disponibilidad y modalidades de atención ---");
         System.out.println("Repartidores registrados:");
@@ -65,7 +64,6 @@ public final class DemoOperacion {
             }
             System.out.println("  " + municipio + " -> " + codigos);
         });
-
         // Atención por orden de llegada (Deque FIFO).
         Paquete porLlegada = servicio.asignarSiguientePorLlegada("R001");
         System.out.println("Atención por llegada asignó " + porLlegada.getCodigo()
@@ -75,7 +73,6 @@ public final class DemoOperacion {
         servicio.cancelarAsignacion(porLlegada.getCodigo());
         System.out.println("Asignación cancelada; R001 disponible de nuevo: "
                 + servicio.buscarRepartidor("R001").get().isDisponible());
-
         // Despacho prioritario automático (PriorityQueue + zona del repartidor).
         servicio.cambiarDisponibilidadRepartidor("R002", false);
         Optional<Paquete> auto = servicio.asignarAutomaticamentePorPrioridad();
@@ -85,7 +82,6 @@ public final class DemoOperacion {
         servicio.cambiarDisponibilidadRepartidor("R002", true);
         System.out.println("Pendientes: " + servicio.cantidadPaquetesPendientes());
     }
-
     public static void demostrarValidaciones(CentroDistribucionServicio servicio) {
         System.out.println("\n--- Validaciones de reglas de negocio ---");
         try {
@@ -93,26 +89,22 @@ public final class DemoOperacion {
         } catch (IllegalArgumentException excepcionEsperada) {
             System.out.println("Código duplicado rechazado: " + excepcionEsperada.getMessage());
         }
-
         try {
             new Paquete("PQ000", "Armenia", 1.0, 6, 10);
         } catch (IllegalArgumentException excepcionEsperada) {
             System.out.println("Prioridad fuera de rango rechazada: " + excepcionEsperada.getMessage());
         }
-
         try {
             servicio.registrarRepartidor(new Repartidor("R001", "Duplicado", "Armenia", true));
         } catch (IllegalArgumentException excepcionEsperada) {
             System.out.println("Identificación duplicada rechazada: " + excepcionEsperada.getMessage());
         }
-
         // PQ731 va a Armenia; R002 cubre Salento, por lo que la asignación debe rechazarse.
         try {
             servicio.asignarPaquete("PQ731", "R002");
         } catch (IllegalStateException excepcionEsperada) {
             System.out.println("Asignación con zona incorrecta rechazada: " + excepcionEsperada.getMessage());
         }
-
         Paquete paquetePorDefecto = servicio.buscarPaquete("PQ231").orElse(null);
         System.out.println("Prioridad predeterminada de PQ231: "
                 + (paquetePorDefecto == null ? "no encontrado" : paquetePorDefecto.getPrioridad()));

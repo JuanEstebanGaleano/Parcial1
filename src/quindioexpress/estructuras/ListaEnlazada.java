@@ -6,12 +6,10 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
-
     private Nodo<T> cabeza;
     private Nodo<T> cola;
     private int tamano;
     private int modificaciones;
-
     private static final class Nodo<E> {
         private final E valor;
         private Nodo<E> siguiente;
@@ -20,15 +18,12 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
             this.valor = valor;
         }
     }
-
     public ListaEnlazada() {
         cabeza = null;
         cola = null;
         tamano = 0;
         modificaciones = 0;
     }
-
-
     @Override
     public void agregar(T elemento) {
         Objects.requireNonNull(elemento, "La lista no admite elementos nulos.");
@@ -43,8 +38,6 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
         tamano++;
         modificaciones++;
     }
-
-
     @Override
     public boolean eliminar(T elemento) {
         if (cabeza == null || elemento == null) {
@@ -78,8 +71,6 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
         }
         return false;
     }
-
-
     @Override
     public T obtener(int indice) {
         if (indice < 0 || indice >= tamano) {
@@ -88,12 +79,10 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
         }
         return nodoEn(indice).valor;
     }
-
     @Override
     public int tamano() {
         return tamano;
     }
-
     @Override
     public boolean estaVacia() {
         return tamano == 0;
@@ -107,7 +96,6 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
         }
         return false;
     }
-
     public void limpiar() {
         if (!estaVacia()) {
             cabeza = null;
@@ -120,7 +108,6 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
     public Iterator<T> iterator() {
         return new IteradorLista();
     }
-
     @Override
     public String toString() {
         StringBuilder texto = new StringBuilder("[");
@@ -134,7 +121,6 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
         }
         return texto.append(']').toString();
     }
-
     private Nodo<T> nodoEn(int indice) {
         Nodo<T> actual = cabeza;
         int posicion = 0;
@@ -153,7 +139,6 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
             comprobarModificaciones();
             return siguiente != null;
         }
-
         @Override
         public T next() {
             comprobarModificaciones();
@@ -164,7 +149,6 @@ public class ListaEnlazada<T> implements Coleccion<T>, Iterable<T> {
             siguiente = siguiente.siguiente;
             return valor;
         }
-
         private void comprobarModificaciones() {
             if (modificacionesEsperadas != modificaciones) {
                 throw new ConcurrentModificationException(

@@ -16,7 +16,6 @@ public class Repartidor {
         this.zona = validarTexto(zona, "La zona no puede ser nula ni vacía.");
         this.disponible = disponible;
     }
-
     public String getIdentificacion() { return identificacion; }
     public String getNombre() { return nombre; }
     public String getZona() { return zona; }
@@ -27,20 +26,17 @@ public class Repartidor {
         return disponible && destino != null && !destino.trim().isEmpty()
                 && normalizar(zona).equals(normalizar(destino));
     }
-
     private static String normalizar(String texto) {
         String minusculas = texto.trim().toLowerCase(Locale.ROOT);
         return Normalizer.normalize(minusculas, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}+", "").replaceAll("\\s+", " ");
     }
-
     private static String validarTexto(String valor, String mensaje) {
         if (valor == null || valor.trim().isEmpty()) {
             throw new IllegalArgumentException(mensaje);
         }
         return valor.trim();
     }
-
     @Override
     public String toString() {
         return "Repartidor{" + "identificacion='" + identificacion + '\''

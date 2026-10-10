@@ -28,7 +28,6 @@ public final class DemoConsultas {
         System.out.println("Siguiente paquete según prioridad: "
                 + servicio.obtenerSiguientePorPrioridad().orElse(null));
     }
-
     public static void demostrarOrdenamientosYBusqueda(CentroDistribucionServicio servicio) {
         System.out.println("\n--- Ordenamientos alternativos (sin alterar la llegada) ---");
         imprimirPrimeros("Prioridad descendente", servicio.ordenarPaquetes(
@@ -46,7 +45,6 @@ public final class DemoConsultas {
         System.out.println("Búsqueda binaria PQ999: "
                 + servicio.buscarBinariaPorCodigo(ordenados, "PQ999"));
     }
-
     public static void demostrarAlgoritmos(CentroDistribucionServicio servicio) {
         System.out.println("\n--- Recursividad y divide y vencerás ---");
         System.out.printf("Peso total para Armenia: %.2f kg%n",
@@ -56,7 +54,6 @@ public final class DemoConsultas {
         System.out.println("Paquete de mayor peso (divide y vencerás): "
                 + servicio.obtenerPaqueteMayorPesoDivideYVenceras().orElse(null));
     }
-
     public static void demostrarListaPropia() {
         System.out.println("\n--- Prueba de la lista simplemente enlazada propia ---");
         ListaEnlazada<String> lista = new ListaEnlazada<>();
@@ -78,7 +75,6 @@ public final class DemoConsultas {
         lista.limpiar();
         System.out.println("Vacía después de limpiar: " + lista.estaVacia());
     }
-
     private static void imprimirPrimeros(String titulo, List<Paquete> paquetes, int limite) {
         System.out.println(titulo + ":");
         int cantidad = Math.min(limite, paquetes.size());

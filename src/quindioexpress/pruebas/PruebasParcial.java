@@ -11,10 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Pruebas automáticas sin bibliotecas externas para verificar los requisitos principales
- * del parcial. Ejecutar con: java PruebasParcial
- */
 public final class PruebasParcial {
     private static int pruebasEjecutadas = 0;
 

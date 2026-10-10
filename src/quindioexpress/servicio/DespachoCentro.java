@@ -1,6 +1,6 @@
 package quindioexpress.servicio;
 
-import quindioexpress.estructuras.MiListaEnlazada;
+import quindioexpress.estructuras.ListaEnlazada;
 import quindioexpress.modelo.ComparadoresPaquete;
 import quindioexpress.modelo.Paquete;
 import quindioexpress.modelo.Repartidor;
@@ -20,7 +20,7 @@ public class DespachoCentro {
     private final PriorityQueue<Paquete> colaPrioridad =
             new PriorityQueue<>(ComparadoresPaquete.porCriterioDespacho());
     /** Historial de entregas con la lista enlazada propia (no una colección de Java). */
-    private final MiListaEnlazada<Paquete> historialEntregas = new MiListaEnlazada<>();
+    private final ListaEnlazada<Paquete> historialEntregas = new ListaEnlazada<>();
     /** Códigos pendientes de entrega. */
     private final HashSet<String> codigosPendientes = new HashSet<>();
     /** Repartidor asignado a cada paquete en proceso de entrega. */
@@ -216,8 +216,8 @@ public class DespachoCentro {
     }
 
     /** @return copia independiente del historial, construida con la lista enlazada propia */
-    public MiListaEnlazada<Paquete> obtenerHistorialEntregas() {
-        MiListaEnlazada<Paquete> copia = new MiListaEnlazada<>();
+    public ListaEnlazada<Paquete> obtenerHistorialEntregas() {
+        ListaEnlazada<Paquete> copia = new ListaEnlazada<>();
         for (Paquete p : historialEntregas) {
             copia.agregar(p);
         }

@@ -1,6 +1,6 @@
 package quindioexpress.servicio;
 
-import quindioexpress.estructuras.MiListaEnlazada;
+import quindioexpress.estructuras.ListaEnlazada;
 import quindioexpress.modelo.Paquete;
 import quindioexpress.modelo.Repartidor;
 
@@ -70,7 +70,7 @@ public class CentroDistribucionServicio {
     }
     public int cantidadPaquetesPendientes() { return despacho.cantidadPaquetesPendientes(); }
     public int cantidadEntregasRealizadas() { return despacho.cantidadEntregasRealizadas(); }
-    public MiListaEnlazada<Paquete> obtenerHistorialEntregas() { return despacho.obtenerHistorialEntregas(); }
+    public ListaEnlazada<Paquete> obtenerHistorialEntregas() { return despacho.obtenerHistorialEntregas(); }
 
     // ------------------------------------------------------------------ Análisis
 

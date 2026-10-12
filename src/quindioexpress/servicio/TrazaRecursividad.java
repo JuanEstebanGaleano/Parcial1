@@ -4,19 +4,12 @@ import quindioexpress.modelo.Paquete;
 
 import java.util.List;
 
-/**
- * Versiones didácticas (con traza) de los algoritmos recursivos, pensadas para la prueba de
- * escritorio y la pila de llamadas (Parte C.1). Imprimen cada llamada al entrar (apilar) y
- * cada retorno al salir (desapilar), con sangría proporcional a la profundidad de la pila.
- * No usan ciclos en los métodos recursivos.
- */
+
 public final class TrazaRecursividad {
 
     private TrazaRecursividad() {
-        throw new IllegalStateException("Esta clase de utilidades no se instancia.");
+        throw new IllegalStateException("Esta clase no se instancia.");
     }
-
-    /** Suma de pesos con traza. Caso base: indice == tamaño -> 0. */
     public static double sumarPesos(List<Paquete> paquetes, int indice, int profundidad) {
         System.out.println(sangria(profundidad) + "-> sumarPesos(indice=" + indice + ")");
         double resultado;
@@ -31,7 +24,6 @@ public final class TrazaRecursividad {
         return resultado;
     }
 
-    /** Conteo por prioridad mínima con traza. Caso base: indice == tamaño -> 0. */
     public static int contarPrioridad(List<Paquete> paquetes, int indice, int minima, int profundidad) {
         System.out.println(sangria(profundidad) + "-> contarPrioridad(indice=" + indice
                 + ", minima=" + minima + ")");
@@ -47,7 +39,6 @@ public final class TrazaRecursividad {
         return resultado;
     }
 
-    /** Divide y vencerás con traza: mayor peso dentro de [inicio, fin]. */
     public static double mayorPeso(double[] pesos, int inicio, int fin, int profundidad) {
         System.out.println(sangria(profundidad) + "-> mayorPeso(inicio=" + inicio + ", fin=" + fin + ")");
         double resultado;

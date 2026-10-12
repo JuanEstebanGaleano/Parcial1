@@ -22,7 +22,7 @@ public final class ComparadoresPaquete {
                     .thenComparing(Paquete::getCodigo);
 
     private ComparadoresPaquete() {
-        throw new IllegalStateException("Esta clase de utilidades no se instancia.");
+        throw new IllegalStateException("Esta clase no se instancia.");
     }
 
     public static Comparator<Paquete> porPrioridadDesc() {

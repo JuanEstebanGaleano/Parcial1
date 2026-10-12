@@ -7,8 +7,7 @@
 **Juan Steban Acosta Ramirez:** 1090273599
 **Juan Esteban Galeano Bolaños:** 1005087822
 
-<img src="img/logo_uniquindio.png" alt="Universidad del Quindío" width="140">
-
+<img src="https://raw.githubusercontent.com/JuanEstebanGaleano/Parcial1/main/img/logo_uniquindio.png" alt="Universidad del Quindío" width="140">
 **Profesor:** Robinson Arias
 
 **Universidad del Quindío**

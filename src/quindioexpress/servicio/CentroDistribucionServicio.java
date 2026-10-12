@@ -6,19 +6,14 @@ import quindioexpress.modelo.Repartidor;
 
 import java.util.*;
 
-/**
- * Fachada de QuindíoExpress. Reparte el trabajo entre:
- * {@link RegistroCentro} (datos y consultas), {@link DespachoCentro} (colas, asignación,
- * entrega e historial) y {@link AnalisisPaquetes} (recursividad, búsqueda binaria, divide y vencerás).
- */
 public class CentroDistribucionServicio {
 
     private final RegistroCentro registro = new RegistroCentro();
     private final DespachoCentro despacho = new DespachoCentro(registro);
 
-    // ------------------------------------------------------------------ Registro y consultas
+    //Registro y consultas
 
-    /** Registra el paquete y lo incorpora a las colas de atención. */
+
     public void registrarPaquete(Paquete paquete) {
         registro.registrarPaquete(paquete);
         despacho.encolar(paquete);
@@ -72,9 +67,8 @@ public class CentroDistribucionServicio {
     public int cantidadEntregasRealizadas() { return despacho.cantidadEntregasRealizadas(); }
     public ListaEnlazada<Paquete> obtenerHistorialEntregas() { return despacho.obtenerHistorialEntregas(); }
 
-    // ------------------------------------------------------------------ Análisis
+    //Análisis
 
-    /** Peso total de un municipio, calculado recursivamente. */
     public double calcularPesoTotalPorMunicipio(String municipio) {
         if (municipio == null || municipio.trim().isEmpty()) {
             throw new IllegalArgumentException("El municipio no puede ser nulo ni vacío.");
@@ -82,7 +76,6 @@ public class CentroDistribucionServicio {
         return AnalisisPaquetes.sumarPesos(registro.obtenerPaquetesPorMunicipio(municipio), 0);
     }
 
-    /** Cantidad de paquetes con prioridad mayor o igual al mínimo, calculada recursivamente. */
     public int contarPaquetesConPrioridadMinima(int prioridadMinima) {
         if (prioridadMinima < Paquete.PRIORIDAD_MINIMA || prioridadMinima > Paquete.PRIORIDAD_MAXIMA) {
             throw new IllegalArgumentException("La prioridad mínima debe estar entre 1 y 5.");
@@ -90,7 +83,6 @@ public class CentroDistribucionServicio {
         return AnalisisPaquetes.contarConPrioridadMinima(registro.obtenerPaquetesRegistrados(), 0, prioridadMinima);
     }
 
-    /** Paquete de mayor peso mediante divide y vencerás. */
     public Optional<Paquete> obtenerPaqueteMayorPesoDivideYVenceras() {
         Paquete[] arreglo = registro.obtenerPaquetesRegistrados().toArray(new Paquete[0]);
         if (arreglo.length == 0) {
@@ -99,7 +91,6 @@ public class CentroDistribucionServicio {
         return Optional.of(AnalisisPaquetes.mayorPeso(arreglo, 0, arreglo.length - 1));
     }
 
-    /** Búsqueda binaria por código; el arreglo debe estar ordenado por código. */
     public Paquete buscarBinariaPorCodigo(Paquete[] paquetesOrdenados, String codigo) {
         return AnalisisPaquetes.buscarBinariaPorCodigo(paquetesOrdenados, codigo);
     }

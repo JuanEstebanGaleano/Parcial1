@@ -9,16 +9,15 @@ import quindioexpress.servicio.CentroDistribucionServicio;
 public final class Main {
 
     private Main() {
-        throw new IllegalStateException("La clase ejecutable no se instancia.");
+        throw new IllegalStateException("La clase no se instancia.");
     }
 
     public static void main(String[] args) {
         CentroDistribucionServicio servicio = new CentroDistribucionServicio();
         DatosIniciales.cargar(servicio);
 
-        System.out.println("============================================================");
-        System.out.println(" QUINDÍOEXPRESS - DEMOSTRACIÓN DE ESTRUCTURAS DE DATOS");
-        System.out.println("============================================================");
+        System.out.println(" QUINDIOEXPRESS - DEMOSTRACIÓN DE ESTRUCTURAS ");
+
         System.out.println("Paquetes registrados: " + servicio.cantidadPaquetesRegistrados());
         System.out.println("Repartidores registrados: " + servicio.cantidadRepartidoresRegistrados());
 
